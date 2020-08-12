@@ -29,10 +29,7 @@
             <a href="index.html" class="nav-link">Dashboard</a>
           </li>
           <li class="nav-item px-2">
-            <a href="users.html" class="nav-link">Users</a>
-          </li>
-          <li class="nav-item px-2">
-            <a href="contact.php" class="nav-link active">Contact</a>
+            <a href="contact.php" class="nav-link active">User</a>
           </li>
 				</ul>
 
