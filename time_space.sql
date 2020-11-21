@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 10, 2020 at 07:33 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.6
+-- Generation Time: Nov 21, 2020 at 07:55 PM
+-- Server version: 10.5.5-MariaDB
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `time_space`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bio` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `name`, `email`, `bio`, `password`) VALUES
+(1, 'Paresh Nandaniya', 'pnandaniya01@gmail.com', 'Hey, I\'m a full stack developer from Gujarat, India. I can help you build your next product.I design, build, operate & sometimes rescue full-stack web applications. I specialize in creating sites for individuals and small businesses.', 'npn'),
+(2, 'Vinesh Majethiya', 'vineshmajethiya0@gmail.com', 'Laravel Devloper                  ', 'vkm');
 
 -- --------------------------------------------------------
 
@@ -42,14 +63,18 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id`, `fname`, `lname`, `email`, `phone`, `message`) VALUES
-(1, 'Foo', 'Bar', 'foobar@gmail.com', '', 'Testing'),
-(2, 'Ram', 'Lakhan', 'ramlakhan@gmail.com', '', 'Ram Lakhan'),
-(3, 'DSFDS', 'BNNB', 'NB', 'NM', 'BMNBMN'),
-(5, 'Vinesh', 'Majethiya', 'na@na.com', '9876543210', 'Hello Testing Long... Long...Long...Long...Long...Long...Long...Long...Long...Long...');
+(11, 'suresh', 'Mahesh', 'na@na.com', '7894561230', 'Test TEst'),
+(14, 'Sagar', 'Ahir', 'sagarahir@gmail.com', '995624106', 'Hello All');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `contact`
@@ -62,10 +87,16 @@ ALTER TABLE `contact`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

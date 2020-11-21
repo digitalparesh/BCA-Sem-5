@@ -16,7 +16,7 @@
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
     <div class="container">
-      <a href="index.html" class="navbar-brand">Time Space</a>
+      <a href="/index.php" class="navbar-brand">Time Space</a>
     </div>
   </nav>
 
@@ -51,17 +51,17 @@
               <h4>Account Login</h4>
             </div>
             <div class="card-body">
-              <form action="index.html">
+              <form action="#" method="POST">
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="text" class="form-control" id="email">
+                  <input type="text" class="form-control" id="email" name="email">
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input id="password" type="password" class="form-control">
+                  <input id="password" type="password" class="form-control" name="password">
                   <!-- <p class="validate text-danger">Passwoed does not match</p> -->
                 </div>
-                <input id="submit" type="submit" value="Login" class="btn btn-primary btn-block">
+                <input id="submit" type="submit" name="login" value="Login" class="btn btn-primary btn-block">
               </form>
             </div>
           </div>
@@ -85,7 +85,7 @@
     </div>
   </footer>
 
-  <script src="../dashboard/js/main.js"></script>
+  <script src="/dashboard/js/main.js"></script>
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -104,3 +104,32 @@
 </body>
 
 </html>
+<?php session_start(); ?>
+<?php
+  include 'includes/connection.php';
+  if(isset($_POST['login']))
+  {
+    $email=$_POST['email'];
+    $pass=$_POST['password'];
+
+    $data=mysqli_query($conn,"SELECT * FROM admin WHERE email='$email' AND password='$pass'");
+    $res=mysqli_num_rows($data);
+
+    if($res==1)
+    {
+      $_SESSION['data'] = $data->fetch_assoc();
+      header('location:/dashboard/index.php');
+    }
+    else
+    {
+      header("location:/dashboard/login.php/?message=Invalid+Login+Detail+$res");
+    }
+  }
+?>
+
+<?php
+  if(isset($_SESSION['data']))
+  {
+    header("location:/dashboard/index.php");
+  }
+?>
