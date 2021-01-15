@@ -2,14 +2,15 @@
 <html lang="en">
 
 <?php
-  $title = "Time Space";
-  $active = 'home';
-  include 'includes/head.php';
+$title = "Time Space";
+$active = 'home';
+include 'includes/head.php';
 ?>
+
 <body>
-<?php
+  <?php
   include 'includes/nav-bar.php';
-?>
+  ?>
   <!-- SHOWCASE SLIDER -->
   <section id="showcase">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -22,9 +23,9 @@
         <div class="carousel-item carousel-image-1 active">
           <div class="container">
             <div class="carousel-caption d-none d-sm-block text-right mb-5">
-              <h1 class="display-3">Web Design</h1>
+              <!-- <h1 class="display-3">Web Design</h1>
               <p class="lead">TimeSpace working on website designing in junagadh.we provide responsive web
-                design,E-commerce solution,parallax scrolling etc</p>
+                design,E-commerce solution,parallax scrolling etc</p> -->
             </div>
           </div>
         </div>
@@ -32,9 +33,9 @@
         <div class="carousel-item carousel-image-2">
           <div class="container">
             <div class="carousel-caption d-none d-sm-block mb-5">
-              <h1 class="display-3">Web Development</h1>
+              <!-- <h1 class="display-3">Web Development</h1>
               <p class="lead">We working on web development services. TimeSpace Provide hotel booking,school web
-                portal,travels booking , business web development etc...</p>
+                portal,travels booking , business web development etc...</p> -->
             </div>
           </div>
         </div>
@@ -42,10 +43,10 @@
         <div class="carousel-item carousel-image-3">
           <div class="container">
             <div class="carousel-caption d-none d-sm-block text-right mb-5">
-              <h1 class="display-3">Video Editing</h1>
+              <!-- <h1 class="display-3">Video Editing</h1>
               <p class="lead">We working on video editing services. TimeSpace Provide animated video,editing, cartoon
                 creation, advertise etc...
-              </p>
+              </p> -->
             </div>
           </div>
         </div>
@@ -122,8 +123,7 @@
       <div class="row">
         <div class="col">
           <div class="container p-5">
-            <a href="#" class="video" data-video="https://www.youtube.com/embed/Vko4IzMetFg" data-toggle="modal"
-              data-target="#videoModal">
+            <a href="#" class="video" data-video="https://www.youtube.com/embed/Vko4IzMetFg" data-toggle="modal" data-target="#videoModal">
               <i class="fas fa-play fa-3x"></i>
             </a>
             <h1>Visit Our YouTube Channel</h1>
@@ -206,9 +206,9 @@
       </div>
     </div>
   </div>
-<?php
+  <?php
   include 'includes/footer.php';
-?>
+  ?>
   <script>
     // Configure Slider
     $('.carousel').carousel({
@@ -217,25 +217,24 @@
     });
 
     // Lightbox Init
-    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
       event.preventDefault();
       $(this).ekkoLightbox();
     });
 
     // Video Play
-    $(function () {
+    $(function() {
       // Auto play modal video
-      $(".video").click(function () {
+      $(".video").click(function() {
         var theModal = $(this).data("target"),
           videoSRC = $(this).attr("data-video"),
           videoSRCauto = videoSRC + "?modestbranding=1&rel=0&controls=0&showinfo=0&html5=1&autoplay=1";
         $(theModal + ' iframe').attr('src', videoSRCauto);
-        $(theModal + ' button.close').click(function () {
+        $(theModal + ' button.close').click(function() {
           $(theModal + ' iframe').attr('src', videoSRC);
         });
       });
     });
-
   </script>
 </body>
 
